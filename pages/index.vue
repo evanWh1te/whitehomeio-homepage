@@ -50,11 +50,26 @@
         <div class="about-stack">
           <h3>Stack</h3>
           <dl>
-            <div><dt>Hypervisor</dt><dd>Proxmox VE</dd></div>
-            <div><dt>Kubernetes</dt><dd>Talos OS</dd></div>
-            <div><dt>Access / Proxy</dt><dd>Pangolin</dd></div>
-            <div><dt>Monitoring</dt><dd>Grafana + Prometheus + Gatus</dd></div>
-            <div><dt>DNS</dt><dd>AdGuard Home</dd></div>
+            <div>
+              <dt>Hypervisor</dt>
+              <dd>Proxmox VE</dd>
+            </div>
+            <div>
+              <dt>Kubernetes</dt>
+              <dd>Talos OS</dd>
+            </div>
+            <div>
+              <dt>Access / Proxy</dt>
+              <dd>Pangolin</dd>
+            </div>
+            <div>
+              <dt>Monitoring</dt>
+              <dd>Grafana + Prometheus + Gatus</dd>
+            </div>
+            <div>
+              <dt>DNS</dt>
+              <dd>AdGuard Home</dd>
+            </div>
           </dl>
         </div>
       </div>
@@ -66,14 +81,8 @@
         <h2 class="section-heading">Services</h2>
         <p class="section-sub">Publicly accessible services running on this infrastructure.</p>
         <div class="services-grid">
-          <a
-            v-for="service in services"
-            :key="service.name"
-            :href="service.url"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="service-card"
-          >
+          <a v-for="service in services" :key="service.name" :href="service.url" target="_blank"
+            rel="noopener noreferrer" class="service-card">
             <div class="service-icon">
               <img v-if="service.icon" :src="service.icon" :alt="service.name" />
               <span v-else>{{ service.emoji }}</span>
@@ -111,12 +120,12 @@
 </template>
 
 <script setup lang="ts">
-import audiobookshelfIcon from '~/assets/icons/audiobookshelf.png'
-import calibrewebIcon from '~/assets/icons/calibreweb.png'
-import freshrssIcon from '~/assets/icons/freshrss.png'
-import jellyfinIcon from '~/assets/icons/jellyfin.png'
-import overseerrIcon from '~/assets/icons/overseerr.png'
-import readeckIcon from '~/assets/icons/readeck.png'
+import audiobookshelfIcon from '@/assets/icons/audiobookshelf.png'
+import calibrewebIcon from '@/assets/icons/calibreweb.png'
+import freshrssIcon from '@/assets/icons/freshrss.png'
+import jellyfinIcon from '@/assets/icons/jellyfin.png'
+import overseerrIcon from '@/assets/icons/overseerr.png'
+import readeckIcon from '@/assets/icons/readeck.png'
 
 const services = [
   {
@@ -159,54 +168,56 @@ const services = [
 </script>
 
 <style>
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
 :root {
-  --bg-void:           #0e0e1a;
-  --bg-shadow:         #1a1a30;
-  --bg-card:           rgba(26, 26, 48, 0.92);
-  --bg-elevated:       #24243e;
-  --bg-input:          #121220;
+  --bg-void: #0e0e1a;
+  --bg-shadow: #1a1a30;
+  --bg-card: rgba(26, 26, 48, 0.92);
+  --bg-elevated: #24243e;
+  --bg-input: #121220;
 
-  --amber-100:         #d4a040;
-  --amber-200:         #e0b870;
-  --amber-glow:        rgba(212, 160, 64, 0.3);
+  --amber-100: #d4a040;
+  --amber-200: #e0b870;
+  --amber-glow: rgba(212, 160, 64, 0.3);
   --amber-glow-strong: rgba(212, 160, 64, 0.5);
-  --amber-subtle:      rgba(212, 160, 64, 0.1);
+  --amber-subtle: rgba(212, 160, 64, 0.1);
 
-  --ice-200:           #7a9cc0;
-  --ice-glow:          rgba(122, 156, 192, 0.3);
+  --ice-200: #7a9cc0;
+  --ice-glow: rgba(122, 156, 192, 0.3);
 
-  --lavender-200:      #8a8ab8;
+  --lavender-200: #8a8ab8;
 
-  --grey-300:          #34344a;
-  --text-primary:      #c8c8d8;
-  --text-secondary:    #8888a0;
-  --text-muted:        #5a5a74;
+  --grey-300: #34344a;
+  --text-primary: #c8c8d8;
+  --text-secondary: #8888a0;
+  --text-muted: #5a5a74;
 
-  --gradient-primary:  linear-gradient(90deg, #d4a040 0%, #7a9cc0 100%);
-  --gradient-card:     linear-gradient(145deg, rgba(26,26,48,0.95), rgba(14,14,26,0.95));
+  --gradient-primary: linear-gradient(90deg, #d4a040 0%, #7a9cc0 100%);
+  --gradient-card: linear-gradient(145deg, rgba(26, 26, 48, 0.95), rgba(14, 14, 26, 0.95));
 
-  --border-default:    #34344a;
-  --border-subtle:     rgba(136, 136, 160, 0.15);
+  --border-default: #34344a;
+  --border-subtle: rgba(136, 136, 160, 0.15);
 
-  --shadow-amber:      0 0 20px rgba(212, 160, 64, 0.3);
-  --shadow-card:       0 4px 24px rgba(0, 0, 0, 0.5);
+  --shadow-amber: 0 0 20px rgba(212, 160, 64, 0.3);
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.5);
 
-  --radius-sm:         4px;
-  --radius-md:         8px;
-  --radius-lg:         12px;
-  --radius-pill:       100px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-pill: 100px;
 
-  --font-display:      'Outfit', sans-serif;
-  --font-mono:         'JetBrains Mono', monospace;
+  --font-display: 'Outfit', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
 
-  --transition-fast:   150ms ease;
-  --transition-base:   250ms ease;
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
 }
 
 html {
@@ -438,7 +449,7 @@ body::before {
   flex-direction: column;
 }
 
-.about-stack dl > div {
+.about-stack dl>div {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
@@ -448,7 +459,7 @@ body::before {
   gap: 1rem;
 }
 
-.about-stack dl > div:first-child {
+.about-stack dl>div:first-child {
   border-top: 1px solid var(--border-default);
 }
 
